@@ -1,0 +1,220 @@
+<!--<h1 *ngIf="isLoggedIn; else info">Welcome {{name}}!</h1>-->
+<!--<div *ngIf="isLoggedIn; then loginTemplate else info">
+
+</div>
+
+<ng-template #loginTemplate>
+  <h1>Welcome {{name}}!</h1>
+</ng-template>
+
+<ng-template #info>
+  <h1>Pls login.</h1>
+</ng-template>-->
+
+
+<!--@if(isLoggedIn){
+<h1>Welcome {{name}}!</h1>
+}
+@else {
+<h1>Pls login.</h1>
+}-->
+
+<!--@if(!isLoggedIn){
+<h1>Pls login.</h1>
+}-->
+
+<!--<h1 *ngIf="status === 'success'; else failedTemplate">Success</h1>
+
+<ng-template #failedTemplate>
+  <h1>Failed</h1>
+</ng-template>-->
+
+<!--@if(status === 'success'){
+<h1>Success</h1>
+}
+@else {
+<h1>Failed</h1>
+}-->
+
+<!--<h1 *ngIf="marks > 50; else info">Marks greater than 50.</h1>
+
+<ng-template #info>
+  <h1>Marks less than or equal to 50.</h1>
+</ng-template>-->
+
+<!--@if(marks>50){
+<h1>Marks greater than 50.</h1>
+}@else {
+<h1>Marks less than or equal to 50.</h1>
+}-->
+
+<!--<button (click)="toggleButton()">Toggle</button>-->
+
+<!--<h2 *ngIf="isContentVisible">This is some content.</h2>-->
+
+<!--@if(isContentVisible){
+<h2>This is some content.</h2>
+}-->
+
+<!--<h1 *ngIf="role === 'admin'">This is Admin.</h1>
+
+<h1 *ngIf="role ==='editor'">This is Editor.</h1>
+
+<h1 *ngIf="role ==='user'">This is User.</h1>-->
+
+<!--@if(role === 'admin'){
+<h1>This is Admin.</h1>
+}
+
+@if(role ==='editor'){
+<h1>This is Editor.</h1>
+}
+@if(role ==='user'){
+<h1>This is User.</h1>
+}-->
+
+<!--@if(role === 'admin'){
+<h1>This is Admin.</h1>
+}
+@else if (role ==='editor'){
+<h1>This is Editor.</h1>
+}
+@else if (role ==='user'){
+<h1>This is User.</h1>
+}
+@else {
+<h1>Unknown role.</h1>
+}-->
+
+<!--<div *ngIf="role === 'admin'; then adminTemplate else editorTemplate ">
+
+</div>
+
+<ng-template #adminTemplate>
+  <h1>This is Admin.</h1>
+</ng-template>
+<ng-template #editorTemplate>
+  <h1 *ngIf="role === 'editor';else userTemplate">This is Editor.</h1>
+</ng-template>
+<ng-template #userTemplate>
+  <h1 *ngIf="role === 'user';else unknownTemplate">This is User.</h1>
+</ng-template>
+<ng-template #unknownTemplate>
+  <h1>Unknown role.</h1>
+</ng-template>-->
+
+<!--<h1 *ngIf="isLoggedIn && role ==='admin'">This is Admin</h1>-->
+
+<!--@if(isLoggedIn && role ==='admin'){
+<h1>This is Admin</h1>
+}-->
+
+<!--<div *ngIf="isLoggedIn">
+  <h1>welcome {{name}}!</h1>
+  <h2 *ngIf="role === 'admin'">Admin's Settings.</h2>
+</div>-->
+
+<!--@if(isLoggedIn){
+<h1>welcome {{name}}!</h1>
+@if(role ==='admin'){
+<h2>Admin's Settings.</h2>
+}
+}-->
+
+<!--<h1>{{students}}</h1>
+
+<h1>{{students[0]}}</h1>
+<h1>{{students[1]}}</h1>
+<h1>{{students[2]}}</h1>-->
+
+<!--<h1 *ngFor="let student of students">{{student}}</h1>-->
+
+<!--<ul>
+  <li *ngFor="let student of students">{{student}}</li>
+</ul>-->
+
+<!--@for (student of students;track student){
+<h1>{{student}}</h1>
+}
+
+<ol>
+  @for(student of students;track student){
+  <li>{{student}}</li>
+  }
+</ol>-->
+
+<!--@for(student of students;track student){
+<ol>
+  <li>{{student}}</li>
+</ol>
+}-->
+
+<!--<button (click)="addNewUser()">Add New User</button>-->
+<!--<h1 *ngIf="users.length == 0">There are no any users.</h1>-->
+<!--@if(users.length == 0){
+<h1>There are no any users.</h1>
+}
+<ul>
+  <li *ngFor="let user of users; let i = index; let even = even">{{even}} {{user.id}} | {{user.name}} |
+    {{user.email}}
+    <button (click)="deleteUser(i)">Delete</button>
+  </li>
+</ul>-->
+
+<!--<ul>
+  @for( user of users ; track $index;let i = $index;let even = $even){
+  <li>{{even}} - {{user.id}} | {{user.name}} | {{user.email}} <button (click)="deleteUser(i)">Delete</button></li>
+  }
+  @empty {
+  <h1>There are no any users.</h1>
+  }
+</ul>-->
+
+<!--<div *ngFor="let category of nestedItems">
+  <h1>{{category.category}}</h1>
+  <ul>
+    <li *ngFor="let item of category.items">{{item}}</li>
+  </ul>
+</div>-->
+
+<!--@for(category of nestedItems;track category){
+<h1>{{category.category}}</h1>
+<ul>
+  @for(item of category.items;track item){
+  <li>{{item}}</li>
+  }
+</ul>
+}-->
+
+<!--<div [ngSwitch]="role">
+  <h1 *ngSwitchCase="'admin'">Welcome Admin!</h1>
+  <h1 *ngSwitchCase="'editor'">Welcome Editor!</h1>
+  <h1 *ngSwitchCase="'user'">Welcome User!</h1>
+  <h1 *ngSwitchDefault>Unknown User</h1>
+</div>-->
+
+<!--@switch (role) {
+@case ('admin') {
+<h1>Welcome Admin!</h1>
+}
+@case ('editor'){
+<h1>Welcome Editor!</h1>
+}
+@case ('user') {
+<h1>Welcome User!</h1>
+}
+@default {
+<h1>Unknown User</h1>
+}
+}-->
+
+<!--<h1 [style.color]="getActiveColor" [style.textTransform]="getTextTransform">DP Education IT
+  Campus</h1>-->
+
+<!--<h1 [ngStyle]="{'color':getActiveColor,
+  'textTransform':getTextTransform
+}">DP Education IT Campus</h1>-->
+
+<!--<h2 [class.active]="isActive" [class.nonactive]="!isActive">DP Education IT Campus</h2>-->
+<!--<h2 [ngClass]="{'active':isActive,'nonactive':!isActive}">DP Education IT Campus</h2>-->
+<h1 appHighlight="red">DP Education IT Campus</h1>
