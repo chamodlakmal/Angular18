@@ -1,0 +1,9 @@
+.active {
+    color: red;
+    text-transform: uppercase;
+}
+
+.nonactive {
+    color: green;
+    text-transform: lowercase;
+}
