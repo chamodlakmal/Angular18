@@ -1,0 +1,68 @@
+<div class="container d-flex flex-column align-items-center justify-content-center vh-100">
+  <h1>User Details</h1>
+  <form class="w-50 mt-5" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+    <div class="mb-4 text-danger">
+      @if(signUpForm.get('userData')?.invalid && signUpForm.get('userData')?.touched){
+      User Data is Invalid
+      }
+
+    </div>
+    <div formGroupName="userData">
+      <input class="form-control" type="text" placeholder="Name" formControlName="username"
+        [class.is-invalid]="isInvalidUsername">
+      <div class="mb-4 text-danger">
+        @if(signUpForm.get('userData.username')?.hasError('required') && signUpForm.get('userData.username')?.touched) {
+        Username is required!
+        }
+
+        @if(signUpForm.get('userData.username')?.hasError('minlength') && signUpForm.get('userData.username')?.touched)
+        {
+        Username must be at least 3 characters long!
+        }
+
+        @if(signUpForm.get('userData.username')?.hasError('maxlength') && signUpForm.get('userData.username')?.touched)
+        {
+        Username must be at most 10 characters long!
+        }
+
+        @if(signUpForm.get('userData.username')?.hasError('restrictedName') &&
+        signUpForm.get('userData.username')?.touched) {
+        This name is restricted!
+        }
+      </div>
+      <input class="form-control" type="text" placeholder="Email" formControlName="email"
+        [class.is-invalid]="isInvalidEmail">
+      <div class="mb-4 text-danger">
+        @if(signUpForm.get('userData.email')?.hasError('required') && signUpForm.get('userData.email')?.touched) {
+        Email is required!
+        }
+        @if(signUpForm.get('userData.email')?.hasError('email') && signUpForm.get('userData.email')?.touched) {
+        Email is invalid!
+        }
+
+        @if(signUpForm.get('userData.email')?.hasError('restrictedEmail') && signUpForm.get('userData.email')?.touched)
+        {
+        This email is restricted!
+        }
+      </div>
+    </div>
+
+    <textarea class="form-control" type="text" placeholder="Address" formControlName="address"
+      [class.is-invalid]="isInvalidAddress"></textarea>
+    <div class="mb-4 text-danger">
+      @if(signUpForm.get('address')?.hasError('required') && signUpForm.get('address')?.touched) {
+      Address is required!
+      }
+    </div>
+
+    <button type="button" class="btn btn-success mb-4" (click)="onAddHobby()">Add Hobby</button>
+    <div formArrayName="hobbies">
+      @for(hobby of hobbies ; track $index){
+      <input class="form-control mb-4" type="text" placeholder="Hobby" [formControlName]="$index"
+        [class.is-invalid]="isInvalidHobby($index)">
+      }
+    </div>
+    <button type="submit" [disabled]="signUpForm.invalid || signUpForm.pending"
+      class="btn btn-primary w-100">Submit</button>
+  </form>
+</div>
