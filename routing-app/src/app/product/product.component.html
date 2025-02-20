@@ -1,0 +1,10 @@
+<p>product works!</p>
+
+<p>Id : {{product | json}}</p>
+
+<a [routerLink]="['/product',6,'sample']" [queryParams]="{page:1,search:'abc'}" [fragment]="'comment'">Navigate to
+	Product</a>
+
+<br>
+
+<button class="btn btn-warning" (click)="loadSampleProduct()">Load sample product</button>

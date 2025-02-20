@@ -1,1 +1,27 @@
-<h1>{{title}}</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <ul class="nav flex-column nav-pills">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" routerLink="/" routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact:true}">First</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLinkActiveOptions]="{exact:true}" routerLink="/second"
+            routerLinkActive="active">Second</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/third']"
+            routerLinkActive="active">Third</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/product']" [queryParams]="{param1:1,param2:2}"
+            routerLinkActive="active">Product</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-9">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

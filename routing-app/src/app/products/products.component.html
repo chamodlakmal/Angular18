@@ -1,0 +1,20 @@
+<div class="row">
+	<div class="col-md-4">
+		<ul class="nav flex-column nav-pills">
+			<li class="nav-item">
+				<a [routerLink]="['/product',1,'product1']" [queryParams]="{param3:3,param4:4}"
+					[queryParamsHandling]="'merge'" class="nav-link" routerLinkActive="active">Product 1</a>
+			</li>
+			<li class="nav-item">
+				<a (click)="onProductClick()" class="nav-link" routerLinkActive="active">Product 2</a>
+			</li>
+			<li class="nav-item">
+				<a [routerLink]="['/product',3,'product3']" class="nav-link" routerLinkActive="active">Product 3</a>
+			</li>
+		</ul>
+	</div>
+	<div class="col-md-8">
+		<router-outlet></router-outlet>
+	</div>
+
+</div>
