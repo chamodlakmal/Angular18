@@ -1,0 +1,8 @@
+<p>userlist works!</p>
+
+
+@for (user of users; track $index) {
+<button class="btn btn-success mb-4" [routerLink]="['/users/edit',user.id]">{{user.name}}</button><br>
+}
+
+<router-outlet></router-outlet>
