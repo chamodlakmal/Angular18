@@ -17,4 +17,5 @@ export class SecondComponent {
   navigateToThird() {
     this.router.navigateByUrl('/third');
   }
+
 }

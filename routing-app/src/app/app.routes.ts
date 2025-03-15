@@ -14,6 +14,7 @@ import { EdituserComponent } from './edituser/edituser.component';
 import { DefaultUserComponent } from './default-user/default-user.component';
 import { HomeComponent } from './home/home.component';
 import { HomeitemsComponent } from './homeitems/homeitems.component';
+import { ErrorHandler, inject } from '@angular/core';
 
 const resolveTitle = () => Promise.resolve('Third');
 
@@ -33,7 +34,7 @@ export const routes: Routes = [
 	{
 		path: 'third',
 		title: resolveTitle,
-		component: ThirdComponent,
+		loadComponent: () => import('./third/third.component').then(m => m.ThirdComponent),
 		data: { name: "kamal", age: 29 }
 	},//localhost:4200/third
 	{
@@ -51,5 +52,19 @@ export const routes: Routes = [
 	},//localhost:4200/users
 	{ path: 'home', component: HomeComponent },//localhost:4200/home
 	{ path: 'home/items', component: HomeitemsComponent },//localhost:4200/home/items
+	{
+		path: 'old-user-page', redirectTo: ({ queryParams }) => {
+			const errorHanlder = inject(ErrorHandler)
+			const userId = queryParams['userId'];
+			if (userId !== undefined) {
+				return `/users/edit/${userId}`;
+			} else {
+				errorHanlder.handleError(new Error('User Id is missing'));
+				return '/users';
+			}
+
+		}
+		, pathMatch: 'full'
+	},
 	{ path: '**', redirectTo: '/not-found' },//localhost:4200/anything
 ];
