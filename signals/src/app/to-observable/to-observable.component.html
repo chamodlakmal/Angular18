@@ -1,0 +1,7 @@
+<input type="text" (input)="onQueryChange($event)">
+
+<ul>
+	@for (result of results$ | async; track $index) {
+	<li>{{result}}</li>
+	}
+</ul>
