@@ -11,6 +11,10 @@
       </ul>
     </div>
     <div class="col-md-9">
+      @if (isUserAdded) {
+      <h1>User Added</h1>
+      }
+
       <router-outlet />
     </div>
   </div>
