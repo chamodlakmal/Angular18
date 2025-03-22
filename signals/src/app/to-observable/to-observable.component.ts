@@ -11,13 +11,22 @@ import { AsyncPipe } from '@angular/common';
   templateUrl: './to-observable.component.html',
   styleUrl: './to-observable.component.css'
 })
-export class ToObservableComponent {
+export class ToObservableComponent implements OnInit {
+
 
   query = inject(QueryService).query
 
   query$ = toObservable(this.query)
 
-  results$ = this.query$.pipe(switchMap((query) => of(query)))
+  //results$ = this.query$.pipe(switchMap((query) => of(query)))
+
+  ngOnInit(): void {
+    this.query.set('a')
+    this.query.set('b')
+    this.query.set('c')
+
+    this.query$.subscribe(value => console.log(value));
+  }
 
   onQueryChange(event: Event) {
 
