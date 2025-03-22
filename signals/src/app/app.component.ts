@@ -10,11 +10,13 @@ import { ToObservableComponent } from "./to-observable/to-observable.component";
 import { SignalInputsComponent } from "./signal-inputs/signal-inputs.component";
 import { ModelInputsComponent } from "./model-inputs/model-inputs.component";
 import { ViewQueriesComponent } from "./view-queries/view-queries.component";
+import { ContentQueriesComponent } from "./content-queries/content-queries.component";
+import { WidgetComponent } from "./widget/widget.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CounterComponent, EffectsComponent, EqualityComponent, UntrackedComponent, CleanupComponent, RxjsInteropComponent, ToObservableComponent, SignalInputsComponent, ModelInputsComponent, ViewQueriesComponent],
+  imports: [RouterOutlet, CounterComponent, EffectsComponent, EqualityComponent, UntrackedComponent, CleanupComponent, RxjsInteropComponent, ToObservableComponent, SignalInputsComponent, ModelInputsComponent, ViewQueriesComponent, ContentQueriesComponent, WidgetComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -33,18 +35,18 @@ export class AppComponent {
   //  this.parentChecked = value
   //}
 
-  cmp = viewChild(ViewQueriesComponent, { read: ElementRef })
-  el = viewChild<ElementRef>('el')
-
-  elementSize = computed(() => {
-    const nativeElement = this.el()?.nativeElement
-    return nativeElement ? nativeElement.offsetWidth * nativeElement.offsetHeight : 0
-  })
-
-  constructor() {
-    effect(() => {
-      console.log("cmp : ", this.cmp(), " el : ", this.el());
-    })
-  }
+  //  cmp = viewChild(ViewQueriesComponent, { read: ElementRef })
+  //  el = viewChild<ElementRef>('el')
+  //
+  //  elementSize = computed(() => {
+  //    const nativeElement = this.el()?.nativeElement
+  //    return nativeElement ? nativeElement.offsetWidth * nativeElement.offsetHeight : 0
+  //  })
+  //
+  //  constructor() {
+  //    effect(() => {
+  //      console.log("cmp : ", this.cmp(), " el : ", this.el());
+  //    })
+  //  }
 
 }
