@@ -4,15 +4,22 @@ import { CounterComponent } from "./counter/counter.component";
 import { EffectsComponent } from "./effects/effects.component";
 import { EqualityComponent } from "./equality/equality.component";
 import { UntrackedComponent } from "./untracked/untracked.component";
+import { CleanupComponent } from "./cleanup/cleanup.component";
+import { RxjsInteropComponent } from "./rxjs-interop/rxjs-interop.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CounterComponent, EffectsComponent, EqualityComponent, UntrackedComponent],
+  imports: [RouterOutlet, CounterComponent, EffectsComponent, EqualityComponent, UntrackedComponent, CleanupComponent, RxjsInteropComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
 
+  //  showCleanUpComponent = signal(false);
+  //
+  //  toggleCleanUpComponent() {
+  //    this.showCleanUpComponent.set(!this.showCleanUpComponent());
+  //  }
 
 }
