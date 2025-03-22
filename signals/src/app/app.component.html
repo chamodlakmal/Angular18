@@ -15,4 +15,8 @@
 <!--<app-rxjs-interop></app-rxjs-interop>-->
 <!--<app-to-observable></app-to-observable>-->
 
-<app-signal-inputs [sample]="''"></app-signal-inputs>
+<!--<app-signal-inputs [sample]="''"></app-signal-inputs>-->
+
+<h1>Parent Checked : {{parentChecked}}</h1>
+
+<app-model-inputs [(checked)]="parentChecked"></app-model-inputs>
