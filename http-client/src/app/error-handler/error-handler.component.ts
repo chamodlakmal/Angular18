@@ -18,7 +18,7 @@ export class ErrorHandlerComponent {
   error: any
 
   fetchData() {
-    this.http.get('https://jsonplaceholder.typicode.com/posts/1').pipe(retry({
+    this.http.get('https://jsonplaceholder.typicode.com/posts/1sa').pipe(retry({
       count: 3,
       delay: (error, count) => {
         console.log(`Tried ${count} times`);
