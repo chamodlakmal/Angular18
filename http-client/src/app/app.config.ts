@@ -10,7 +10,7 @@ import { LoggingInterceptor } from './interceptors/logging.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes),
-  provideHttpClient(withInterceptors([customHeaderInterceptor, responseLoggingIntercetor]), withInterceptorsFromDi()), {
+  provideHttpClient(withInterceptors([customHeaderInterceptor]), withInterceptorsFromDi()), {
     provide: HTTP_INTERCEPTORS,
     useClass: LoggingInterceptor,
     multi: true

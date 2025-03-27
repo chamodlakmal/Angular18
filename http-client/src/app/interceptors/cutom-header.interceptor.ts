@@ -3,6 +3,9 @@ import { inject } from "@angular/core";
 import { AuthService } from "../services/auth.service";
 
 export const customHeaderInterceptor: HttpInterceptorFn = (req, next) => {
+	console.log('Custom Header Interceptor');
+	console.log(req.url);
+
 	const authService = inject(AuthService);
 	const authToken = authService.getAuthToken;
 	const modifiedrequest = req.clone({

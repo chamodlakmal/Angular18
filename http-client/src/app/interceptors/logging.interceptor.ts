@@ -13,8 +13,10 @@ import { Observable } from "rxjs";
 @Injectable()
 export class LoggingInterceptor implements HttpInterceptor {
 	intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-		console.log(`Request ${JSON.stringify(req)}`)
-		console.log(`Requesting ${req.url}`)
+		console.log('Logging Interceptor');
+		console.log(req.url);
+		//console.log(`Request ${JSON.stringify(req)}`)
+		//console.log(`Requesting ${req.url}`)
 		return next.handle(req);
 	}
 
