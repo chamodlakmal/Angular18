@@ -1,0 +1,20 @@
+<div class="container">
+	<h1>File Upload</h1>
+	<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+		<div class="mb-3">
+			<label for="file" class="form-label">Upload File</label>
+			<input type="file" class="form-control" id="file" (change)="onFileChange($event)">
+		</div>
+
+		<button class="btn btn-primary">Submit</button>
+
+	</form>
+	@if(progress>=0){
+	<p>Upload Progress : {{progress}}%</p>
+	<progress value="{{progress}}" max="100"></progress>
+	}
+
+	@if(uploadComplete){
+	<p>Upload Complete</p>
+	}
+</div>
