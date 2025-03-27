@@ -1,0 +1,17 @@
+<div class="container mt-5">
+
+	<div class="d-flex flex-column gap-2">
+		<button type="button" class="btn btn-primary w-25" (click)="getJsonData()">Fetch Json Data</button>
+		<pre>{{jsonData | json}}</pre>
+		<button type="button" class="btn btn-secondary w-25" (click)="getTextData()">Fetch Text Data</button>
+		<p>{{textData}}</p>
+		<button type="button" class="btn btn-success w-25" (click)="getImageData()">Fetch Image Data</button>
+		@if (imageData) {
+		<p>{{imageData.byteLength}}</p>
+		<img [src]="imageSrc" alt="Image" />
+		}
+
+	</div>
+
+
+</div>
