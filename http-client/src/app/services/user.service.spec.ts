@@ -72,5 +72,4 @@ describe('UserService', () => {
     const req = httpTesting.expectOne('https://jsonplaceholder.typicode.com/users');
     req.flush('Network error', { status: 0, statusText: 'Unknown Error' });
   });
-
 });
